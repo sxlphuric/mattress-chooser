@@ -1,0 +1,27 @@
+<div class="title">
+    <em class="question-number">Question {{this.business.quizQuestion() + 1}}</em>
+    <h2>{{this.sleepQuiz()[this.business.quizQuestion()].question}}</h2>
+</div>
+
+@if (this.business.warning) {
+    <p >Required</p>
+}
+
+<div class="buttons">
+    @for (answer of this.sleepQuiz()[this.business.quizQuestion()].answers; track $index) {
+        <button (click)="this.business.setTag(answer.tag)">{{answer.answertext}}</button>
+    }
+</div>
+<div class="switch">
+    <button (click)="this.business.previousQuestion()">Previous</button>
+    @if (this.business.quizQuestion() != this.sleepQuiz().length - 1) {
+        <button (click)="this.business.nextQuestion()">Next</button>
+    } @else {
+        <button (click)="this.business.finishQuiz()">Finish</button>
+    }
+</div>
+@for (tag of this.business.tags(); track $index) {
+    <em style="font-size: 0.9em" class="tag">{{tag}}</em>
+}
+
+

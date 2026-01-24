@@ -1,0 +1,14 @@
+@if (!business.quizStarted) {
+  <h1>Welcome to the SLEEP QUIZ</h1>
+  <p>This quiz will tell you what mattress would be the best for you.</p>
+  <button (click)="business.startQuiz()">Start</button>
+} @else {
+  @if(!business.quizFinished) {
+    <app-quiz></app-quiz>
+  } @else {
+    <app-result></app-result>
+  }
+  
+}
+
+

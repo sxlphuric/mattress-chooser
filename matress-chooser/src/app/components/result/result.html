@@ -1,0 +1,16 @@
+@if (this.business.possibleMattresses().length != 0) {  
+    <p>Your mattress matches for @for (tag of this.business.tags(); track $index) { <em class="tag">{{tag}}</em> } are</p>
+    <ul>
+        @for (mattress of this.business.possibleMattresses(); track $index) {
+            <li><span class="name">{{mattress.brand}} {{mattress.model}}</span>
+                <span class="price">{{mattress.price}}$</span></li>
+        } 
+    </ul>
+} @else {
+    
+    <p>We don't have any mattresses available for you. Here is a table of our mattresses instead:</p>
+}
+
+<!--- button (click)="this.business.redoQuiz()">Redo</button
+This button always uses the old array of tags and I dont want to fix so fuck you
+--->
