@@ -18,7 +18,7 @@
 
 }
 
-<div class="buttons child-borders flex row flex-spaces">
+<div class="buttons child-borders flex row flex-edges">
     @for (answer of this.sleepQuiz()[this.business.quizQuestion()].answers; track $index) {
     <button (click)="this.business.setTag(answer.tag)">{{answer.answertext}}</button>
     }
