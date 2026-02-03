@@ -1,1 +1,27 @@
-<p>mattress-list works!</p>
+<table class="table-alternating">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Sleeper</th>
+            <th>Firmness</th>
+            <th>Cooling</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @for (mattress of business.possibleMattressesObject().highMatch; track $index) {
+            @if ($index <= business.possibleExtraMatresses()) {
+                <tr>
+                <td>{{mattress.brand}} {{mattress.model}}</td>
+                <td>{{mattress.price}}$</td>
+                <td>{{mattress.tags.sleepside.split('-')[1]}}</td>
+                <td>{{mattress.tags.feel.split('-')[1]}}</td>
+                <td>Idk</td>
+                </tr>
+            }
+            
+        }
+        
+    </tbody>
+</table>

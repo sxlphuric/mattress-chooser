@@ -1,27 +1,39 @@
 <div class="title">
-    <em class="question-number">Question {{this.business.quizQuestion() + 1}}</em>
+    <div class="progress">
+        <div class="bar striped secondary w-{{this.business.convertToPercent(this.business.tags().length, this.sleepQuiz().length)}}"></div>
+        
+    </div>
+    <em class="question-number"></em>
     <h2>{{this.sleepQuiz()[this.business.quizQuestion()].question}}</h2>
 </div>
 
 @if (this.business.warning) {
-    <p >Required</p>
+<input class="alert-state" id="alert-1" type="checkbox">
+<div class="alert alert-warning dismissible">
+    Please choose an option
+    <label class="btn-close" for="alert-1">X</label>
+</div>
+
+
 }
 
-<div class="buttons">
+<div class="buttons child-borders flex row flex-spaces">
     @for (answer of this.sleepQuiz()[this.business.quizQuestion()].answers; track $index) {
-        <button (click)="this.business.setTag(answer.tag)">{{answer.answertext}}</button>
+    <button (click)="this.business.setTag(answer.tag)">{{answer.answertext}}</button>
     }
 </div>
-<div class="switch">
-    <button (click)="this.business.previousQuestion()">Previous</button>
+<div class="switch flex row flex-edges">
+    @if (this.business.quizQuestion() != 0) {
+    <button (click)="this.business.previousQuestion()" class="btn-secondary">Previous</button>
+    }
     @if (this.business.quizQuestion() != this.sleepQuiz().length - 1) {
-        <button (click)="this.business.nextQuestion()">Next</button>
+    <button (click)="this.business.nextQuestion()" class="btn-secondary">Next</button>
     } @else {
-        <button (click)="this.business.finishQuiz()">Finish</button>
+    <button (click)="this.business.heatFinishQuiz()" class="btn-success">Finish</button>
     }
 </div>
-@for (tag of this.business.tags(); track $index) {
-    <em style="font-size: 0.9em" class="tag">{{tag}}</em>
-}
-
-
+<div class="flex row flex-edges">
+    @for (tag of this.business.tags(); track $index) {
+    <span class="badge">{{tag}}</span>
+    }
+</div>
