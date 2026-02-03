@@ -1,4 +1,4 @@
-<div class="flex col flex-spaces">
+
   <div class="title">
     <div class="progress">
         <div class="bar striped secondary w-{{this.business.convertToPercent(this.business.tags().length, this.sleepQuiz().length)}}"></div>
@@ -37,5 +37,4 @@
     @for (tag of this.business.tags(); track $index) {
     <span class="badge">{{tag}}</span>
     }
-</div>
 </div>
