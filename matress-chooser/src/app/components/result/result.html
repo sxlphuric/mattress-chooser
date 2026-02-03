@@ -1,16 +1,26 @@
 @if (this.business.possibleMattresses().length != 0) {  
-    <p>Your mattress matches for @for (tag of this.business.tags(); track $index) { <em class="tag">{{tag}}</em> } are</p>
-    <ul>
+    <p>Your mattress matches for @for (tag of this.business.tags(); track $index) { <span class="badge">{{tag}}</span><span style="opacity: 0;">.</span> } are</p>
+    <div class="grid">
         @for (mattress of this.business.possibleMattresses(); track $index) {
-            <li><span class="name">{{mattress.brand}} {{mattress.model}}</span>
-                <span class="price">{{mattress.price}}$</span></li>
-        } 
-    </ul>
+            @if ($index < 50) {
+                
+            }
+            <div>
+                <p>{{mattress.brand}} {{mattress.model}} <span class="badge">{{mattress.price}}$</span></p>
+            </div>
+                
+        }
+    </div>
+        
+    <p>Here is a list of other mattresses that are tailored to you.</p>
+    <app-mattress-list/>
+         
 } @else {
     
-    <p>We don't have any mattresses available for you. Here is a table of our mattresses instead:</p>
+    <p>We don't have any mattresses available for you. Here is a table of the closest mattresses tailored to you:</p>
+    <app-mattress-list/>
 }
 
 <!--- button (click)="this.business.redoQuiz()">Redo</button
-This button always uses the old array of tags and I dont want to fix so fuck you
+This button always uses the old array of tags and I dont want to fix so flip you
 --->
