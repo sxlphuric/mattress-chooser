@@ -9,7 +9,7 @@
 </div>
 
 @if (this.business.warning) {
-<input class="alert-state" id="alert-1" type="checkbox">
+<input (click)="() => {this.business.warning = false}" class="alert-state" id="alert-1" type="checkbox">
 <div class="alert alert-warning dismissible">
     Please choose an option
     <label class="btn-close" for="alert-1">X</label>
