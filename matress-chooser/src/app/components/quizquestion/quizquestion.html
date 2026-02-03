@@ -20,7 +20,7 @@
 
 <div class="buttons child-borders flex row flex-edges">
     @for (answer of this.sleepQuiz()[this.business.quizQuestion()].answers; track $index) {
-    <button (click)="this.business.setTag(answer.tag)" popover-top="{{answer.tag}}">{{answer.answertext}}</button>
+    <button (click)="this.business.setTag(answer.tag)" popover="{{answer.tag}}" popover-position="top">{{answer.answertext}}</button>
     }
 </div>
 <div class="switch flex row flex-edges">
