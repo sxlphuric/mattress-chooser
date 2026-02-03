@@ -11,7 +11,7 @@
 
     <tbody>
         @for (mattress of business.possibleMattressesObject().highMatch; track $index) {
-            @if ($index < 10) {
+            @if ($index <= business.possibleExtraMatresses()) {
                 <tr>
                 <td>{{mattress.brand}} {{mattress.model}}</td>
                 <td>{{mattress.price}}$</td>

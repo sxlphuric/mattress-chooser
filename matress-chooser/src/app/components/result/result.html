@@ -2,13 +2,9 @@
     <p>Your mattress matches for @for (tag of this.business.tags(); track $index) { <span class="badge">{{tag}}</span><span style="opacity: 0;">.</span> } are</p>
     <div class="grid">
         @for (mattress of this.business.possibleMattresses(); track $index) {
-            @if ($index < 50) {
-                
-            }
-            <div>
-                <p>{{mattress.brand}} {{mattress.model}} <span class="badge">{{mattress.price}}$</span></p>
-            </div>
-                
+                <div>
+                    <p>{{mattress.brand}} {{mattress.model}} <span class="badge">{{mattress.price}}$</span></p>
+                </div>
         }
     </div>
         

@@ -20,6 +20,7 @@ export class Business {
   })
   sleepQuiz = sleepQuiz
   mattressList = mattressList
+  possibleExtraMatresses = signal(12)
   warning = false
 
   setTag(tag: string) {
@@ -82,6 +83,8 @@ export class Business {
         }
     }
     console.log("Perfect Matches",this.possibleMattresses())
+    this.possibleExtraMatresses.set(this.possibleExtraMatresses() - this.possibleMattresses().length)
+    console.log(this.possibleExtraMatresses())
     console.log("High match",this.possibleMattressesObject().highMatch)
     console.log("Mid match",this.possibleMattressesObject().lowMatch)
     console.log("Sleep Tags",this.tags())
